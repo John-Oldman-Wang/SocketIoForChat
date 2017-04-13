@@ -1,0 +1,28 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "use socket.io to create a server for chating",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nokisnojok/SocketIoForChat.git"
+  },
+  "keywords": [
+    "socket.io"
+  ],
+  "author": "wanglin (843022618@qq.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nokisnojok/SocketIoForChat/issues"
+  },
+  "homepage": "https://github.com/nokisnojok/SocketIoForChat#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3",
+    "ws": "^2.2.3"
+  }
+}
