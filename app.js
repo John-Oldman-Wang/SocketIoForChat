@@ -20,7 +20,7 @@ var numUsers = 0;
 
 io.on('connection', function (socket) {
   var addedUser = false;
-
+  console.log(socket)
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
     // we tell the client to execute 'new message'
@@ -33,7 +33,6 @@ io.on('connection', function (socket) {
   // when the client emits 'add user', this listens and executes
   socket.on('add user', function (username) {
     if (addedUser) return;
-
     // we store the username in the socket session for this client
     socket.username = username;
     ++numUsers;

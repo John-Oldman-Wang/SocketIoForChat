@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>face to face</title>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<video autoplay></video>
+	<canvas id='mycanves' width='800' height='600'></canvas>
+	<script type="text/javascript">
+		var stream
+		var isgetUserMedia=false
+		var websocket=io.connect("ws://localhost:8080")
+		navigator.getUserMedia({audio:true,video:true},function(buf){
+			console.log(buf)
+			stream=buf
+			isgetUserMedia=true
+			document.querySelector("video").src=window.URL.createObjectURL(buf)
+		},function(err){
+			console.log(err)
+		})
+		function draw(ctx,video,canves){
+			ctx.drawImage(video,0,0);
+			var dataURL=canvas.toDataURL('image/jpeg',0.2);
+			if(isgetUserMedia){
+				websocket.emit("newFrame",dataURL)
+			}
+		}
+		window.onload=function(){
+			var canvas=document.querySelector("#mycanves")
+			var video=document.querySelector("video")
+			var ctx=canvas.getContext("2d")
+		}
+	</script>
+</body>
+</html>
