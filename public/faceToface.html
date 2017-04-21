@@ -12,11 +12,12 @@
 		var stream
 		var isgetUserMedia=false
 		var websocket=io.connect("ws://localhost:8080")
-		navigator.getUserMedia({audio:true,video:true},function(buf){
-			console.log(buf)
-			stream=buf
+		navigator.getUserMedia({audio:true,video:true},function(MeidaStream){
+			console.log(MeidaStream)
+			stream=MeidaStream
 			isgetUserMedia=true
-			document.querySelector("video").src=window.URL.createObjectURL(buf)
+			//document.querySelector("video").src=window.URL.createObjectURL(MeidaStream)
+			document.querySelector("video").srcObject=MeidaStream
 		},function(err){
 			console.log(err)
 		})
